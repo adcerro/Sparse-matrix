@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Matriz {
 
     public static void main(String[] args) {
-        int filas, columnas, valor, valorm = 0, opcion = 0, ceroCount =0;
+        int filas, columnas, valor, valorm = 0, opcion = 0;
         Scanner leer = new Scanner(System.in);
         Random random = new Random();
-
+        
         System.out.println("¿De que tamaño desea su matriz?");
         System.out.println("Inserte el número de filas: ");
         filas = leer.nextInt();
@@ -26,71 +26,58 @@ public class Matriz {
         switch (opcion) {
             case 1:
                 ListaSimple matriz = new ListaSimple();
+                int matOri[][] = new int[filas][columnas];
+                //Creación de matriz dispersa
+                matriz.Matri(filas, columnas, matOri);
+                System.out.println("****Matriz Original****");
+                matriz.imprimirmat(filas, columnas, matOri);
+                System.out.println();
+                //Matriz original a la lista
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
-                        valor = random.nextInt(100);
-                        if (valor != 0){  
-                          matriz.Agregar(valor, i, j); 
-                        }else{
-                            ceroCount +=1;
+                        if (matOri[i][j] != 0){  
+                          matriz.Agregar(matOri[i][j], i, j); 
                         }
                     }
                 }
-                if(ceroCount<filas*columnas/2+1){
-                    matriz.EliminarCola((filas*columnas/2+1)-ceroCount);
-                }
                 matriz.listar();
-
                 int mat[][] = new int[filas][columnas];
-
+                //Llevar la lista a una matriz
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
                         mat[i][j] = matriz.recorrer(i, j, valorm);
+                        
                     }
                 }
-                
                 System.out.println();
-
-                for (int i = 0; i < filas; i++) {
-                    for (int j = 0; j < columnas; j++) {
-                        System.out.print(mat[i][j] + " ");
-                    }
-                    System.out.println();
-                }
+                matriz.imprimirmat(filas, columnas, mat);
+               
                 break;
             case 2:
+                ListaSimple matrizc = new ListaSimple();
                 ListaDoble matrizD = new ListaDoble();
+                int matD[][] = new int[filas][columnas];
+                matrizc.Matri(filas, columnas, matD);
+                System.out.println("****Matriz Original****");
+                System.out.println();
+                matrizc.imprimirmat(filas, columnas, matD);
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
-                        valor = random.nextInt(100);
-                        if (valor % 2 == 0 || valor % 5 == 0){
-                            valor = 0;
-                        }
-                        if (valor != 0){  
-                          matrizD.Agregar(valor, i, j); 
+                        if (matD[i][j] != 0){  
+                          matrizD.Agregar(matD[i][j], i, j); 
                         }
                     }
                 }
-                matrizD.listar();
-
-                int matD[][] = new int[filas][columnas];
-
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
                         matD[i][j] = matrizD.recorrer(i, j, valorm);
                     }
                 }
+                matrizD.listar();
                 System.out.println();
-
-                for (int i = 0; i < filas; i++) {
-                    for (int j = 0; j < columnas; j++) {
-                        System.out.print(matD[i][j] + " ");
-                    }
-                    System.out.println();
-                }
+                matrizc.imprimirmat(filas, columnas, matD);
                 break;
-        }
-        System.out.println(ceroCount);
+       }
     }
 
 }

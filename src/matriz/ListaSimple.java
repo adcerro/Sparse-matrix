@@ -1,10 +1,14 @@
 package matriz;
 
+import java.util.Random;
+
 public class ListaSimple {
     
     private Nodo PTR;
 
     private int tamaño;
+    
+    Random random = new Random();
 
     public void Lista(){
         PTR = null;
@@ -32,16 +36,56 @@ public class ListaSimple {
         }
         tamaño++;
     }
-    public void EliminarCola(int cantidad){
-        for(int i=0; i<cantidad; i++){
-            Nodo p = new Nodo();
-            p = PTR;
-            PTR = p.getLink();
-            p.setLink(null);
-            p = null;
+    
+    public int[][] Matri(int filas,int columnas,int[][]matri){
+        int valor,conta;
+        for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                    valor = random.nextInt(100);
+                    conta = random.nextInt(2);
+                    if (conta == 0){
+                        matri[i][j] = 0;
+                    }else{
+                      matri[i][j] = valor;  
+                    }
+                }
         }
-        tamaño--;
+        Verifica(filas,columnas,matri);
+        return matri;
     }
+    
+    public int[][] Verifica(int filas,int columnas,int[][]matri){
+        int valor,conta=0,conta2;
+        for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                    if (matri[i][j]!=0){
+                        conta += 1;
+                    }
+                    if (j == columnas-1 && conta>=columnas/2){
+                        j=0;
+                        for (int k = 0; k < columnas; k++) {
+                          conta2 = random.nextInt(2);
+                          if (conta2 == 0 && matri[i][k] != 0){
+                            matri[i][k] = 0;
+                          } 
+                        }
+                        conta = 0;
+                    }
+                }
+        }
+        return matri;
+    }
+    
+    public void imprimirmat(int filas,int columnas,int[][]matri){
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                System.out.print(matri[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    
     
     public void listar(){
         System.out.print("[ fila,columna | valor ]");

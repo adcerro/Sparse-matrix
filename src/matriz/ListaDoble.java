@@ -33,6 +33,8 @@ public class ListaDoble {
         tamaño++;
     }
     
+    
+    
     public void listar(){
         System.out.print("[ fila,columna | valor ]");
         System.out.println("\n");
