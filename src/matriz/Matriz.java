@@ -28,11 +28,13 @@ public class Matriz {
                 ListaSimple matriz = new ListaSimple();
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
-                        valor = random.nextInt(11);
-                        if (valor % 2 == 0 || valor % 3 == 0) {
+                        valor = random.nextInt(100);
+                        if (valor % 2 == 0 || valor % 5 == 0){
                             valor = 0;
                         }
-                        matriz.Agregar(valor, i, j);
+                        if (valor != 0){  
+                          matriz.Agregar(valor, i, j); 
+                        }
                     }
                 }
                 matriz.listar();
@@ -44,6 +46,7 @@ public class Matriz {
                         mat[i][j] = matriz.recorrer(i, j, valorm);
                     }
                 }
+                
                 System.out.println();
 
                 for (int i = 0; i < filas; i++) {
@@ -57,11 +60,13 @@ public class Matriz {
                 ListaDoble matrizD = new ListaDoble();
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
-                        valor = random.nextInt(11);
-                        if (valor % 2 == 0 || valor % 3 == 0) {
+                        valor = random.nextInt(100);
+                        if (valor % 2 == 0 || valor % 5 == 0){
                             valor = 0;
                         }
-                        matrizD.Agregar(valor, i, j);
+                        if (valor != 0){  
+                          matrizD.Agregar(valor, i, j); 
+                        }
                     }
                 }
                 matrizD.listar();

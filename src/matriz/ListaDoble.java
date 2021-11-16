@@ -39,7 +39,7 @@ public class ListaDoble {
         if (PTR != null) {
             NodoDoble Q = PTR;
             while(Q != null){
-                System.out.print("[ "+Q.getFila()+","+Q.getColumna()+"|" + Q.getValor() + " ]" + " <->  ");
+                System.out.print("[ "+Q.getFila()+","+Q.getColumna()+"|"+Q.getValor()+ " ]" + " <->  ");
                 Q = Q.getRlink();
             }
         }
@@ -52,7 +52,6 @@ public class ListaDoble {
             while(Q != null){
                 if (Q.getFila()==fila && Q.getColumna()==columna){
                     valorm = Q.getValor();
-
                 }
                 Q = Q.getRlink();
             }
