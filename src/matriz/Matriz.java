@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Matriz {
 
     public static void main(String[] args) {
-        int filas, columnas, valor, valorm = 0, opcion = 0;
+        int filas, columnas, valor, valorm = 0, opcion = 0, ceroCount =0;
         Scanner leer = new Scanner(System.in);
         Random random = new Random();
 
@@ -29,13 +29,15 @@ public class Matriz {
                 for (int i = 0; i < filas; i++) {
                     for (int j = 0; j < columnas; j++) {
                         valor = random.nextInt(100);
-                        if (valor % 2 == 0 || valor % 5 == 0){
-                            valor = 0;
-                        }
                         if (valor != 0){  
                           matriz.Agregar(valor, i, j); 
+                        }else{
+                            ceroCount +=1;
                         }
                     }
+                }
+                if(ceroCount<filas*columnas/2+1){
+                    matriz.EliminarCola((filas*columnas/2+1)-ceroCount);
                 }
                 matriz.listar();
 
@@ -88,6 +90,7 @@ public class Matriz {
                 }
                 break;
         }
+        System.out.println(ceroCount);
     }
 
 }

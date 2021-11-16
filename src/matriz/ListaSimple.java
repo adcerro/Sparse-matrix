@@ -32,6 +32,16 @@ public class ListaSimple {
         }
         tamaño++;
     }
+    public void EliminarCola(int cantidad){
+        for(int i=0; i<cantidad; i++){
+            Nodo p = new Nodo();
+            p = PTR;
+            PTR = p.getLink();
+            p.setLink(null);
+            p = null;
+        }
+        tamaño--;
+    }
     
     public void listar(){
         System.out.print("[ fila,columna | valor ]");
