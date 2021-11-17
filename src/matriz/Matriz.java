@@ -104,7 +104,8 @@ public class Matriz {
                         }
                     }
                     System.out.println("---- Matriz Generada a partir de Lista ----"+"\n");
-                    Matriz.imprimirMatriz(filas, columnas, matrizRM);          
+                    Matriz.imprimirMatriz(filas, columnas, matrizRM);
+                    break;
            }
             do{
                 System.out.println("¿Quieres probar con otra matriz? 1. Si 0. No");
