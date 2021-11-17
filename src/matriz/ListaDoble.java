@@ -50,6 +50,7 @@ public class ListaDoble {
             while(Q != null){
                 if (Q.getFila() == fila && Q.getColumna() == columna){
                     valorm = Q.getValor();
+                    break;
                 }
                 Q = Q.getRlink();
             }

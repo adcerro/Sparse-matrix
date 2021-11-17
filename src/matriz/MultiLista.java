@@ -68,19 +68,25 @@ public class MultiLista {
     }
     
     public int recorrer(int fila, int columna){
-        int valorm = 0;
+        int valorm = 0, con = 0;
         if (PTR != null) {
             NodoMulti Q = PTR;
             while (Q != null){
                 if (Q.getFila() == fila && Q.getColumna() == columna){
                     valorm = Q.getValor();
+                    break;
                 }
                 Nodo P = Q.getLink2();
                 while(P != null){
                     if (P.getFila() == fila && P.getColumna() == columna){
                         valorm = P.getValor();
+                        con = 1;
+                        break;
                     }                    
                     P = P.getLink();
+                }
+                if(con == 1){
+                    break;
                 }
                 Q = Q.getLink1();
             }

@@ -58,10 +58,8 @@ public class Matriz {
                     ListaDoble listaD = new ListaDoble();
                     int matrizD[][] = new int[filas][columnas];
                     Matriz.crearMatriz(filas, columnas, matrizD);
-                     //Creación de matriz dispersa
                     System.out.println("---- Matriz Original ----"+"\n");
                     Matriz.imprimirMatriz(filas, columnas, matrizD);
-                    //Matriz original a la lista
                     for (int i = 0; i < filas; i++) {
                         for (int j = 0; j < columnas; j++) {
                             if (matrizD[i][j] != 0){  
@@ -71,7 +69,6 @@ public class Matriz {
                     }
                     listaD.listar();
                     int matrizRD[][] = new int [filas][columnas];
-                    //Llevar la lista a una matriz
                     for (int i = 0; i < filas; i++) {
                         for (int j = 0; j < columnas; j++) {
                             matrizRD[i][j] = listaD.recorrer(i, j);
@@ -84,10 +81,8 @@ public class Matriz {
                     MultiLista multiL = new MultiLista();
                     int matrizM[][] = new int [filas][columnas];
                     Matriz.crearMatriz(filas, columnas, matrizM);
-                     //Creación de matriz dispersa
                     System.out.println("---- Matriz Original ----"+"\n");
                     Matriz.imprimirMatriz(filas, columnas, matrizM);
-                     //Matriz original a la lista
                     for (int i = 0; i < filas; i++) {
                         for (int j = 0; j < columnas; j++) {
                             if (matrizM[i][j] != 0){  
@@ -97,14 +92,13 @@ public class Matriz {
                     }
                     multiL.listar();
                     int matrizRM[][] = new int [filas][columnas];
-                    //Llevar la lista a una matriz
                     for (int i = 0; i < filas; i++) {
                         for (int j = 0; j < columnas; j++) {
                             matrizRM[i][j] = multiL.recorrer(i, j);
                         }
                     }
                     System.out.println("---- Matriz Generada a partir de Lista ----"+"\n");
-                    Matriz.imprimirMatriz(filas, columnas, matrizRM);
+                    Matriz.imprimirMatriz(filas, columnas, matrizRM);     
                     break;
            }
             do{
