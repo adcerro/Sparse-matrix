@@ -1,18 +1,20 @@
 package matriz;
 
-public class Nodo {
+public class NodoMulti {
     private int fila;
     private int columna;
     private int valor;
-    private Nodo link;
+    private NodoMulti Link1;
+    private Nodo Link2;
     
-    public void Nodo(){
+    public void NodoMulti(){
         valor = 0;
         fila = 0;
         columna = 0;
-        link = null;
+        Link1 = null;
+        Link2 = null;
     }
-
+    
     public int getFila() {
         return fila;
     }
@@ -28,7 +30,7 @@ public class Nodo {
     public void setColumna(int columna) {
         this.columna = columna;
     }
-  
+    
     public int getValor() {
         return valor;
     }
@@ -37,12 +39,20 @@ public class Nodo {
         this.valor = valor;
     }
     
-    public Nodo getLink() {
-        return link;
+    public NodoMulti getLink1() {
+        return Link1;
     }
 
-    public void setLink(Nodo link) {
-        this.link = link;
+    public void setLink1(NodoMulti Link1) {
+        this.Link1 = Link1;
     }   
+    
+    public Nodo getLink2() {
+        return Link2;
+    }
+
+    public void setLink2(Nodo Link2) {
+        this.Link2 = Link2;
+    }  
     
 }

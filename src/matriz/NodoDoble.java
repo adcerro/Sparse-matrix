@@ -1,10 +1,19 @@
-
 package matriz;
 
 public class NodoDoble {
-    private int fila,columna;
+    private int fila;
+    private int columna;
     private int valor;
-    private NodoDoble Llink, Rlink;
+    private NodoDoble Llink;
+    private NodoDoble Rlink;
+    
+    public void NodoDoble(){
+        valor = 0;
+        fila = 0;
+        columna = 0;
+        Llink = null;
+        Rlink = null;
+    }
 
     public int getFila() {
         return fila;
@@ -21,15 +30,6 @@ public class NodoDoble {
     public void setColumna(int columna) {
         this.columna = columna;
     }
-
-    public void Nodo(){
-        this.valor = 0;
-        this.fila = 0;
-        this.columna = 0;
-        this.Llink = null;
-        this.Rlink = null;
-    }
-
     
     public int getValor() {
         return valor;
@@ -46,6 +46,7 @@ public class NodoDoble {
     public void setLlink(NodoDoble link) {
         this.Llink = link;
     }   
+    
     public NodoDoble getRlink() {
         return Rlink;
     }
@@ -53,4 +54,5 @@ public class NodoDoble {
     public void setRlink(NodoDoble link) {
         this.Rlink = link;
     }   
+    
 }

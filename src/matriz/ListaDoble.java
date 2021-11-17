@@ -1,21 +1,13 @@
-
 package matriz;
 
 public class ListaDoble {
-      private NodoDoble PTR;
+    private NodoDoble PTR;
 
-    private int tamaño;
-
-    public void Lista(){
+    public void ListaDoble(){
         PTR = null;
-        tamaño = 0;
     }
 
-    public int getTamaño(){
-        return tamaño;
-    }
-
-    public void Agregar(int valor,int fila, int columna){
+    public void Agregar(int valor, int fila, int columna){
         NodoDoble newnodo = new NodoDoble();
         newnodo.setValor(valor);
         newnodo.setFila(fila);
@@ -30,29 +22,33 @@ public class ListaDoble {
             Q.setRlink(newnodo);
             newnodo.setLlink(Q);
         }
-        tamaño++;
     }
-    
-    
-    
+      
     public void listar(){
-        System.out.print("[ fila,columna | valor ]");
-        System.out.println("\n");
+        System.out.println("---- Lista Doble que representa Matriz dispersa ----" + "\n");
         if (PTR != null) {
+            System.out.println("[ fila,columna | valor ]" + "\n");
             NodoDoble Q = PTR;
             while(Q != null){
-                System.out.print("[ "+Q.getFila()+","+Q.getColumna()+"|"+Q.getValor()+ " ]" + " <->  ");
+                if(Q.getRlink() != null){
+                    System.out.print("[ " + Q.getFila() + "," + Q.getColumna() + "|" + Q.getValor() + " ]" + " <->  ");
+                } else{
+                    System.out.print("[ " + Q.getFila() + "," + Q.getColumna() + "|" + Q.getValor() + " ]" + " --> nulo");
+                }
                 Q = Q.getRlink();
             }
-        }
-        System.out.println("fin de la matriz");
-        
+            System.out.println("\n");
+        } else{
+            System.out.println("No hay elementos distintos de 0 en la matriz" + "\n");
+        }      
     }
-    public int recorrer(int fila, int columna,int valorm){
+    
+    public int recorrer(int fila, int columna){
+        int valorm = 0;
         if (PTR != null) {
             NodoDoble Q = PTR;
             while(Q != null){
-                if (Q.getFila()==fila && Q.getColumna()==columna){
+                if (Q.getFila() == fila && Q.getColumna() == columna){
                     valorm = Q.getValor();
                 }
                 Q = Q.getRlink();
@@ -60,5 +56,6 @@ public class ListaDoble {
         }
         return valorm;
     }
+    
 }
 
